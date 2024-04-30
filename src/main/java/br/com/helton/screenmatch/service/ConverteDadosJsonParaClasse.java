@@ -1,16 +1,15 @@
 package br.com.helton.screenmatch.service;
 
-import br.com.helton.screenmatch.model.DadosSerie;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class ConverteDados implements IConverteDados{
+public class ConverteDadosJsonParaClasse implements IConverteDados{
 
     private ObjectMapper mapper = new ObjectMapper();
 
 
     @Override
-    public <T> T obterDados(String json, Class<T> classe) {
+    public <T> T converterJsonParaClasse(String json, Class<T> classe) {
         try {
             return mapper.readValue(json, classe);
         } catch (JsonProcessingException e) {
